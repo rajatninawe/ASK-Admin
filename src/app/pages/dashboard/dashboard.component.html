@@ -1,0 +1,189 @@
+<div class="main-content" data-color="primary" data-background-color="black">
+  <div class="container-fluid">
+    <div class="card card-details mat-elevation-z8">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Dashboard</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">supervised_user_circle</i>
+                </div>
+                <p class="card-category">Field 1</p>
+                <h3 class="card-title">
+                  <small>{{ var1 | number: "1.0-2" }}</small>
+                </h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-info">info</i>
+                  <a>Description 1</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">supervised_user_circle</i>
+                </div>
+                <p class="card-category">Field 2</p>
+                <h3 class="card-title">
+                  <small>{{ var2 | number: "1.0-2" }}</small>
+                </h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-info">info</i>
+                  <a>Description 2</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">set_meal</i>
+                </div>
+                <p class="card-category">Field 3</p>
+                <h3 class="card-title">
+                  <small>{{ var3 | number: "1.0-2" }}</small>
+                </h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-info">info</i>
+                  <a>Description 3</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">av_timer</i>
+                </div>
+                <p class="card-category">Field 4</p>
+                <h3 class="card-title">
+                  <small>{{ var4 | number: "1.0-2" }}</small>
+                </h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-info">info</i>
+                  <a>Description 4</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">av_timer</i>
+                </div>
+                <p class="card-category">Field 5</p>
+                <h3 class="card-title">
+                  <small>{{ var5 }}</small>
+                </h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-info">info</i>
+                  <a>Description 5</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4">
+            <div class="card card-stats">
+              <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">social_distance</i>
+                </div>
+                <p class="card-category">Field 6</p>
+                <h3 class="card-title">
+                  <div *ngIf="spinner; else resolved">
+                    <mat-spinner [diameter]="25"></mat-spinner>
+                  </div>
+
+                  <ng-template #resolved>
+                    <small>{{ var6 }} </small></ng-template
+                  >
+                </h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons text-info">info</i>
+                  <a>Description 6</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card card-details mat-elevation-z8">
+              <div class="card-body">
+                <canvas
+                  baseChart
+                  [data]="pieChartData"
+                  [labels]="pieChartLabels"
+                  [colors]="pieColors"
+                  [chartType]="pieChartType"
+                  [legend]="pieChartLegend"
+                  [plugins]="pieChartPlugins"
+                  [options]="pieChartOptions"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card card-details mat-elevation-z8">
+              <div class="card-body" *ngIf="donutChartData">
+                <canvas
+                  baseChart
+                  [data]="donutChartData"
+                  [colors]="donutColors"
+                  [labels]="donutChartLabels"
+                  [chartType]="donutChartType"
+                  [legend]="donutChartLegend"
+                  [plugins]="donutChartPlugins"
+                  [options]="donutChartOptions"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card card-details mat-elevation-z8">
+              <div class="card-body">
+                <canvas
+                  baseChart
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h1 mat-dialog-title>Add</h1>
+  <div class="ml-auto">
+    <!-- <button (click)="onCloseCancel()" class="p-0 btn btn-close">
+      <i class="material-icons">close</i>
+    </button> -->
+  </div>
+</div>
+<mat-dialog-content>
+  <form [formGroup]="bForm">
+    <mat-form-field class="display-block">
+      <mat-label>subCate</mat-label>
+      <mat-select required [(value)]="selectCate">
+        <mat-option *ngFor="let c of subCateList" [value]="c.id">
+          {{ c.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="display-block">
+      <mat-label>name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error
+        *ngIf="!bForm.controls.name.valid && bForm.controls.name.dirty"
+      >
+        Length at least 3
+      </mat-error>
+    </mat-form-field>
+    <app-file-upload (down)="down($event)"></app-file-upload>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn btn-default btn-sm">
+    cancel
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn btn-primary btn-sm"
+    [disabled]="!bForm.valid"
+    (click)="onSave()"
+  >
+    ok
+  </button>
+</mat-dialog-actions>

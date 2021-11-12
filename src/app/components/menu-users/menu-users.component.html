@@ -1,0 +1,21 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  color="primary"
+  *ngIf="!(isAuthenticated | async)"
+  (click)="onLogin()"
+>
+  <mat-icon color="primary">person</mat-icon>
+</button>
+
+<button mat-button *ngIf="isAuthenticated | async">
+  <mat-icon>person</mat-icon>
+  Menu
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onExit()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,21 @@
+<div
+  class="upload-container"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  "
+>
+  <div class="upload-select">
+    <mat-icon class="upload-icon" color="accent">add</mat-icon>
+    <div class="upload-text">Upload image</div>
+    <div class="upload-inner">
+      <input type="file" class="upload-input" (change)="uploadFile($event)" />
+    </div>
+    <div>{{ uploadPercent | async }}%</div>
+    <div class="upload-preview" *ngIf="previewUrl">
+      <img [src]="this.previewUrl" />
+    </div>
+  </div>
+</div>

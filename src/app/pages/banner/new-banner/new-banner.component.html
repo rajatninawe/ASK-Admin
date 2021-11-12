@@ -1,0 +1,103 @@
+<div class="modal-header">
+  <h1 mat-dialog-title>{{ data.isEdit ? "Edit" : "Add recipe" }}</h1>
+  <div class="ml-auto">
+    <button mat-button mat-dialog-close class="p-0 btn btn-close">
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+</div>
+<mat-dialog-content>
+  <form [formGroup]="bForm">
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="display-block">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required />
+          <mat-error
+            *ngIf="!bForm.controls.name.valid && bForm.controls.name.dirty"
+          >
+            Name required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="display-block">
+          <mat-label>Description</mat-label>
+          <textarea rows="4" matInput formControlName="description"></textarea>
+          <mat-error
+            *ngIf="
+              !bForm.controls.description.valid &&
+              bForm.controls.description.dirty
+            "
+          >
+            Description required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="display-block">
+          <mat-label>Fish</mat-label>
+          <mat-select required [(value)]="selectCate" multiple>
+            <mat-option *ngFor="let c of subCateList" [value]="c.docId">
+              {{ c.name | titlecase }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="display-block">
+          <mat-label>Directions</mat-label>
+          <textarea rows="4" matInput formControlName="directions"></textarea>
+          <mat-error
+            *ngIf="
+              !bForm.controls.directions.valid &&
+              bForm.controls.directions.dirty
+            "
+          >
+            Description required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field class="display-block">
+      <mat-label>Ingredients</mat-label>
+      <input matInput formControlName="ingredients" />
+      <mat-error
+        *ngIf="
+          !bForm.controls.ingredients.valid && bForm.controls.ingredients.dirty
+        "
+      >
+        Description required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="display-block"> -->
+
+    <br />
+    <div class="row">
+      <div class="col-sm-6">
+        <input
+          type="hidden"
+          name="img"
+          formControlName="img"
+          [(ngModel)]="child.dl"
+        />
+
+        <app-file-upload #child></app-file-upload>
+      </div>
+    </div>
+    <!-- <input matInput formControlName="image" /> -->
+    <!-- </mat-form-field> -->
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn btn-default btn-sm">
+    cancel
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!bForm.valid"
+    (click)="onSave()"
+    class="btn btn-primary btn-sm"
+  >
+    ok
+  </button>
+</mat-dialog-actions>

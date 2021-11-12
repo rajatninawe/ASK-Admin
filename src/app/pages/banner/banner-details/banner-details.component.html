@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h1 mat-dialog-title>Recipe Details</h1>
+  <div class="ml-auto">
+    <button mat-button mat-dialog-close class="p-0 btn btn-close">
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+</div>
+<mat-dialog-content>
+  <img
+    [src]="recipeData.img"
+    style="
+      height: 50%;
+      width: 50%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    "
+  />
+  <br />
+
+  <h4><b>Name:</b> {{ recipeData.name | titlecase }}</h4>
+  <div>
+    <h4><b>Fish:</b> {{ recipeData.fishDetails }}</h4>
+  </div>
+  <div>
+    <h4><b>Description:</b></h4>
+    <p>{{ recipeData.description }}</p>
+  </div>
+  <div>
+    <h4><b>Ingredients:</b></h4>
+    <p>{{ recipeData.ingredients }}</p>
+  </div>
+  <div>
+    <h4><b>Directions:</b></h4>
+    <p style="white-space: pre-line">{{ recipeData.directions }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn btn-default btn-sm">
+    Close
+  </button>
+</mat-dialog-actions>

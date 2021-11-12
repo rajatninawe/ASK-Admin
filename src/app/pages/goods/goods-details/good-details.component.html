@@ -1,0 +1,54 @@
+<div class="modal-header">
+  <h1 mat-dialog-title>Fish Details</h1>
+  <div class="ml-auto">
+    <button mat-button mat-dialog-close class="p-0 btn btn-close">
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+</div>
+<mat-dialog-content>
+  <img
+    [src]="fishData.image"
+    style="
+      height: 50%;
+      width: 50%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    "
+  />
+  <h4><b>Name:</b> {{ fishData.name | titlecase }}</h4>
+  <div>
+    <h4><b>Common name:</b> {{ fishData.commonName }}</h4>
+  </div>
+  <div>
+    <h4><b>Local Name:</b> {{ fishData.localName | titlecase }}</h4>
+  </div>
+  <div>
+    <h4><b>Comparable to:</b></h4>
+    <p>{{ fishData.comparableTo }}</p>
+  </div>
+  <div>
+    <h4><b>Description:</b></h4>
+    <p>{{ fishData.description }}</p>
+  </div>
+  <div>
+    <h4><b>Preparations:</b></h4>
+    <p>{{ fishData.preparations }}</p>
+  </div>
+  <div>
+    <h4><b>Sustainability:</b></h4>
+    <p>{{ fishData.sustainability }}</p>
+  </div>
+  <div>
+    <h4><b>Store Price:</b> {{ fishData.pricing.inStores?.averagePrice }}</h4>
+  </div>
+  <div>
+    <h4><b>Road Price:</b> {{ fishData.pricing.inRoad?.averagePrice }}</h4>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn btn-default btn-sm">
+    Close
+  </button>
+</mat-dialog-actions>

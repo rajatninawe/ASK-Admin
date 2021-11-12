@@ -1,0 +1,143 @@
+<div class="main-content" data-color="primary" data-background-color="black">
+  <div class="container-fluid">
+    <div class="card card-details mat-elevation-z8">
+      <div
+        class="card-header card-header-primary"
+        style="position: sticky; top: 5px; z-index: 100"
+      >
+        <h4 class="card-title">
+          Users
+          <div class="right-header-btn">
+            <button
+              mat-raised-button
+              (click)="onUpdate()"
+              class="btn btn-sm btn-warning"
+              [disabled]="!selection.hasValue()"
+            >
+              <span class="material-icons"> update </span>
+              Update status
+            </button>
+            <button
+              mat-raised-button
+              class="btn btn-sm btn-success"
+              (click)="onExport()"
+            >
+              <span class="material-icons"> download </span>
+              Export to Excel
+            </button>
+          </div>
+        </h4>
+      </div>
+      <div class="card-body">
+        <mat-form-field>
+          <input
+            matInput
+            (keyup)="applyFilter($event.target.value)"
+            placeholder="Filter"
+          />
+        </mat-form-field>
+
+        <div
+          class="table-responsive"
+          #TABLE
+          style="
+            margin-top: 10px;
+            max-height: calc(100vh - 325px);
+            overflow: auto;
+          "
+        >
+          <table
+            #table
+            mat-table
+            [dataSource]="dataSource"
+            class="table table-striped"
+            matSort
+          >
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox
+                  (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)"
+                  [aria-label]="checkboxLabel(row)"
+                >
+                </mat-checkbox>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+              <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.firstName | titlecase }} {{ row.lastName | titlecase }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="phone">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Contact no.
+              </th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.phoneNumber }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="zipcode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Zipcode</th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.address[0].zipCode }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="city">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.address[0].city | titlecase }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.isActive ? "Active" : "Inactive" }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="isAllowedToPost">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Can post catch
+              </th>
+              <td mat-cell *matCellDef="let row">
+                {{
+                  row.isAllowedToPost == false ||
+                  row.isAllowedToPost == undefined
+                    ? "Not allowed"
+                    : "Allowed"
+                }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+              (click)="rowSelection(row)"
+            ></tr>
+          </table>
+        </div>
+        <mat-paginator
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="pageSizeop"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [pageSizeOptions]="[10, 25, 100, dataSource.data.length]" -->

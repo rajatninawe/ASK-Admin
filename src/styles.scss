@@ -1,0 +1,304 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/styles-material.scss";
+//@import "~@angular/material/theming";
+//@import "~bootstrap/scss/bootstrap-reboot";
+//@import "~bootstrap/scss/bootstrap-grid";
+
+//@include mat-core();
+
+//@import "./themes/variables";
+//@import "./themes/black-theme";
+//@import "./themes/default-theme";
+//@import "./themes/light-theme";
+//@import "./themes/nature-theme";
+
+/**components styles**/
+@import "./app/components/loading/loading.component.theme";
+@import "./app/components/navigation/nav-item/nav-item.component.theme";
+@import "./app/components/brand/brand.component.theme";
+
+// @mixin custom-components-theme($theme) {
+//   @include app-loading-theme($theme);
+//   @include app-nav-theme($theme);
+//   @include app-brand-theme($theme);
+// }
+
+//@include angular-material-theme($my-theme);
+//@include custom-components-theme($my-theme);
+
+// .default-theme {
+//   @include angular-material-theme($my-theme);
+//   @include custom-components-theme($my-theme);
+// }
+
+// .light-theme {
+//   @include angular-material-theme($my-light-theme);
+//   @include custom-components-theme($my-light-theme);
+// }
+
+// .black-theme {
+//   @include angular-material-theme($my-black-theme);
+//   @include custom-components-theme($my-black-theme);
+// }
+
+// .nature-theme {
+//   @include angular-material-theme($my-nature-theme);
+//   @include custom-components-theme($my-nature-theme);
+// }
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
+
+html,
+body {
+  height: 100%;
+  *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #03a9f4;
+    // outline: 3px solid slategrey;
+    border-radius: 10px;
+  }
+}
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+  line-height: normal;
+  margin: 0;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.mat-drawer-side {
+  border-right: none !important;
+}
+
+// .mat-sidenav-content::-webkit-scrollbar,
+// body::-webkit-scrollbar,
+// mat-sidenav.sidenav::-webkit-scrollbar,
+// .main-container::-webkit-scrollbar {
+//   height: 6px;
+//   width: 6px;
+// }
+
+// .mat-sidenav-content::-webkit-scrollbar-thumb,
+// body::-webkit-scrollbar-thumb,
+// mat-sidenav.sidenav::-webkit-scrollbar-thumb,
+// .main-container::-webkit-scrollbar-thumb {
+//   background-color: #6e6e6e;
+//   outline: 1px solid #333;
+// }
+
+.red-snackbar {
+  background: #f44336;
+}
+
+.green-snackbar {
+  background: #79e2a5;
+}
+.main-content {
+  margin-top: 25px;
+  .card-details {
+    font-family: "Poppins", sans-serif;
+    .card-header {
+      .card-title {
+        margin: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+      }
+    }
+    .card-body {
+      table {
+        th {
+          color: #52698a;
+          text-transform: uppercase;
+          line-height: 18px;
+          font-size: 13px;
+          font-weight: 600;
+          font-family: "Poppins", sans-serif;
+        }
+        td {
+          color: #52698a;
+          text-align: left;
+          font-weight: 400;
+          font-size: 12px;
+          letter-spacing: 0px;
+          color: #52698a;
+          font-family: "Poppins", sans-serif;
+        }
+      }
+    }
+  }
+}
+td {
+  overflow: hidden;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+button:focus {
+  outline: 0px;
+}
+
+.mat-dialog-container {
+  font-family: "Poppins", sans-serif;
+  padding: 0px !important;
+  .modal-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eff0f3;
+    background: #f3f4f8;
+    h1 {
+      margin-bottom: 0px;
+      letter-spacing: 0px;
+      color: #043170;
+      opacity: 1;
+      font-size: 16px;
+      line-height: 25px;
+      font-weight: 600;
+      font-family: "Poppins", sans-serif;
+    }
+    button.btn-close {
+      margin: 0px;
+      box-shadow: none;
+      background: transparent;
+      background-color: transparent;
+      width: auto;
+      height: auto;
+      box-shadow: none;
+      margin: 0px;
+      i {
+        font-size: 22px;
+        color: #52698a;
+      }
+      &:focus {
+        outline: 0px;
+        background-color: transparent;
+        background: none;
+        color: #043170;
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  .mat-dialog-content {
+    margin: 0px;
+    padding: 15px 15px;
+  }
+  .mat-dialog-actions {
+    padding: 7px 15px;
+    margin: 0px;
+    justify-content: flex-end;
+    background: #f3f4f8;
+    border-top: 1px solid #eff0f3;
+  }
+}
+.nav-container {
+  background: linear-gradient(60deg, $green-a300, $green-a300);
+  .nav-link {
+    color: #fff;
+    .nav-link-icon {
+      color: #fff;
+    }
+    &.active {
+      background: linear-gradient(
+        60deg,
+        $light-blue-700,
+        $light-blue-a800
+      ) !important;
+    }
+  }
+  .nav-children {
+    background: linear-gradient(
+      60deg,
+      $light-blue-700,
+      $light-blue-a800
+    ) !important;
+  }
+}
+.brand {
+  // background: linear-gradient(
+  //   60deg,
+  //   $light-blue-700,
+  //   $light-blue-a800
+  // ) !important;
+  background: #fafafa;
+}
+.footer {
+  background: linear-gradient(
+    60deg,
+    $light-blue-700,
+    $light-blue-a800
+  ) !important;
+}
+.login-screen {
+  height: 100vh;
+  overflow: hidden;
+  .login-bg {
+    img {
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .login-section {
+    text-align: left;
+    background: #fff;
+    padding: 40px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .logo {
+      margin-bottom: 20px;
+      img {
+        width: 100%;
+        // height: 92px;
+      }
+    }
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
+.mat-menu-panel {
+  min-width: 210px !important;
+  margin-right: 10px;
+  background: linear-gradient(60deg, $green-a300, $green-a300);
+  .mat-menu-content {
+    .mat-menu-item {
+      color: #fff;
+      .mat-icon {
+        color: #fff;
+      }
+      &:hover {
+        background: linear-gradient(
+          60deg,
+          $light-blue-700,
+          $light-blue-a800
+        ) !important;
+        color: #fff;
+      }
+    }
+  }
+}
+.listing-popup {
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 0px;
+  li {
+    list-style: none;
+    .material-icons {
+      font-size: 12px;
+      color: #0288d1;
+    }
+  }
+}

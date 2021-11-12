@@ -1,0 +1,66 @@
+<div class="modal-header">
+  <h1 mat-dialog-title>{{ data.isEdit ? "Edit" : "Add" }}</h1>
+  <div class="ml-auto">
+    <button mat-button mat-dialog-close class="p-0 btn btn-close">
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+</div>
+<mat-dialog-content>
+  <form [formGroup]="goodForm">
+    <!-- <input matInput formControlName="status" required /> -->
+    <mat-label> <b>Account status:</b></mat-label
+    ><br /><br />
+    <label>
+      <input
+        type="radio"
+        name="status"
+        formControlName="status"
+        [value]="true"
+      />&nbsp;Active
+    </label>
+    &nbsp;&nbsp;
+    <label>
+      <input
+        type="radio"
+        name="status"
+        formControlName="status"
+        [value]="false"
+      />&nbsp;Inactive
+    </label>
+    <Br /><br />
+    <mat-label><b>Can post catch:</b></mat-label
+    ><br /><br />
+    <label>
+      <input
+        type="radio"
+        name="isAllowedToPost"
+        formControlName="isAllowedToPost"
+        [value]="true"
+      />&nbsp;Allowed
+    </label>
+    &nbsp;&nbsp;
+    <label>
+      <input
+        type="radio"
+        name="isAllowedToPost"
+        formControlName="isAllowedToPost"
+        [value]="false"
+      />&nbsp;Not allowed
+    </label>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn btn-default btn-sm">
+    cancel
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!goodForm.valid"
+    (click)="onSave()"
+    class="btn btn-primary btn-sm"
+  >
+    ok
+  </button>
+</mat-dialog-actions>
