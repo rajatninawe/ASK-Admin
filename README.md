@@ -1,6 +1,6 @@
 ## Getting started
 
-`git clone clone url cd my-project npm install ng serve`
+`git clone https://github.com/rajatninawe/fb_admin.git cd my-project npm install ng serve`
 
 ## Development server
 
