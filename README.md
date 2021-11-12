@@ -1,10 +1,3 @@
-## ASK admin
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
-<a target="_blank" rel="noopener noreferrer">
-<img src="https://github.com/ionictemplate-app/angular-admin/blob/master/src/assets/images/preview.png" alt="angular-admin" style="max-width:100%;">
-</a>
-
 ## Getting started
 
 `git clone clone url cd my-project npm install ng serve`
