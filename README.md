@@ -3,8 +3,42 @@
 `git clone https://github.com/rajatninawe/fb_admin.git cd my-project npm install ng serve`
 
 After that,\
-Step 1: Create a Firebase project and register your app.
+Create a Firebase project and register your app.\
         Before you can add Firebase to your JavaScript app, you need to create a Firebase project and register your app with that project. When you register your app with                 Firebase, you'll get a Firebase configuration object that you'll use to connect your app with your Firebase project resources.
+        
+After you have a Firebase project, you can register your web app with that project.
+In the center of the Firebase console's project overview page, click the Web icon (plat_web) to launch the setup workflow.
+If you've already added an app to your Firebase project, click Add app to display the platform options.
+Enter your app's nickname.
+This nickname is an internal, convenience identifier and is only visible to you in the Firebase console.
+Click Register app.
+Under SDK setup and configuration, choose config toggle and copy the displayed object there something like this -
+
+            apiKey: "############",
+            authDomain: "############",
+            projectId: "############",
+            storageBucket: "############",
+            messagingSenderId: "############",
+            appId: "############",
+            measurementId: "############",
+            
+Paste the copied object in firebase key inside environment file.
+
+            export const environment = {
+              production: false,
+              firebase: {
+                apiKey: "############",
+                authDomain: "############",
+                projectId: "############",
+                storageBucket: "############",
+                messagingSenderId: "############",
+                appId: "############",
+                measurementId: "############"
+                },
+              };
+For topic based Push notifications, go to cloud messaging in project settings and copy server key to paste inside same enviornment file under serverKey variable.
+
+              export const serverKey = "############";
 
 ## Development server
 
