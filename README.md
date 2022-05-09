@@ -1,12 +1,29 @@
 ## Angular Starter Kit for Firebase Web App
 
-The Angular Starter Kit for Firebase Web App implements the connection between various commomly used firebase services and a angular based admin protal.
+The Angular Starter Kit for Firebase Web App implements the connection between various commomly used firebase services and a angular based admin protal.\
+The following is the list of services implemented currently:
+- Firestore Database
+- Storage
+- Topic based Cloud Messaging
 
-After that,\
-Create a Firebase project and register your app.\
-        Before you can add Firebase to your JavaScript app, you need to create a Firebase project and register your app with that project. When you register your app with                 Firebase, you'll get a Firebase configuration object that you'll use to connect your app with your Firebase project resources.
-        
-After you have a Firebase project, you can register your web app with that project.
+### Prerequisites
+
+#### Node.js
+Before you can start working, you need to have Node.js installed on your machine.\
+To download Node.js visit https://nodejs.org/en/download/.
+
+*NOTE: You can use a tool like NVM or N to install and manage multiple node versions*
+
+#### Angular CLI
+
+You use the Angular CLI to create projects, generate application and library code, and perform a variety of ongoing development tasks such as testing, bundling, and deployment.
+
+To install the Angular CLI, open a terminal window and run the following command:
+
+    npm install -g @angular/cli
+
+#### Firebase Project
+Before you can add Firebase to your app, you need to create a Firebase project and register your app with that project. When you register your app with Firebase, you'll get a Firebase configuration object that you'll use to connect your app with your Firebase project resources.
 In the center of the Firebase console's project overview page, click the Web icon (plat_web) to launch the setup workflow.
 If you've already added an app to your Firebase project, click Add app to display the platform options.
 Enter your app's nickname.
@@ -39,14 +56,29 @@ Paste the copied object in firebase key inside environment file.
 For topic based Push notifications, go to cloud messaging in project settings and copy server key to paste inside same enviornment file under serverKey variable.
 
               export const serverKey = "############";
+              
+#### ASK Schematics Generator
+
+Use ASK Schematics Generator to generate new components.
+
+To install the Angular CLI, open a terminal window and run the following command:
+
+    npm i ask-schematics-generator
+    
+## Code scaffolding
+
+Run `ng g ask-schematics-generator:ask component-name` to generate a new component.
+
+This command will generate a set of following files:
+- Parent component (app/pages)
+- Entry component (app/pages/new-component-name)
+- Service file (app/pages/shared/services)
+- Model file (app/pages/shared/model)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
