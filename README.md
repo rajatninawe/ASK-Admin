@@ -1,6 +1,4 @@
-## Angular Starter Kit for Firebase Webapp
-
-`git clone https://github.com/rajatninawe/ASK-Admin.git cd my-project npm install ng serve`
+## Angular Starter Kit for Firebase Web App
 
 After that,\
 Create a Firebase project and register your app.\
