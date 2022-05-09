@@ -1,6 +1,6 @@
 ## Getting started
 
-`git clone https://github.com/rajatninawe/fb_admin.git cd my-project npm install ng serve`
+`git clone https://github.com/rajatninawe/ASK-Admin.git cd my-project npm install ng serve`
 
 After that,\
 Create a Firebase project and register your app.\
