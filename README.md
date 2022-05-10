@@ -80,7 +80,7 @@ This command will generate a set of following files:
 - Model file (app/pages/shared/model)\
   Defines the logical structure and relationship of underlying collection.
   
-After generating component, make sure to add the necessary navigation details into layouts.component.ts(src/app/layouts) & and route detail in pages-routing.module.ts(src/app/pages).
+After generating component, make sure to add the necessary navigation details into layouts.component.ts (src/app/layouts) & and route detail in pages-routing.module.ts (src/app/pages).
 
 ## Development server
 
